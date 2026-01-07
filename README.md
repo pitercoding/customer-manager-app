@@ -1,4 +1,10 @@
-# 🧾 **Customer Manager App**
+<h1 align="center">🧾 Customer Manager App (PT-BR)</h1>
+
+<p align="center">
+  🌎 <strong>Languages:</strong><br>
+  <a href="README.md">🇧🇷 Português</a> |
+  <a href="README.en.md">🇺🇸 English</a>
+</p>
 
 O **Customer Manager App** é uma aplicação **Full Stack** desenvolvida para gerenciar clientes de forma simples, moderna e eficiente. 
 
@@ -196,4 +202,5 @@ Desenvolvedor Full Stack em formação.
 📧 **Email:** [piterg.bio@gmail.com](mailto:piterg.bio@gmail.com)  
 💼 **LinkedIn:** [linkedin.com/in/piter-gomes-4a39281a1](https://www.linkedin.com/in/piter-gomes-4a39281a1/)  
 🌐 **Portfólio:** [my-portfolio-flame-mu-xxis8wes4p.vercel.app](https://my-portfolio-flame-mu-xxis8wes4p.vercel.app/)
+
 
