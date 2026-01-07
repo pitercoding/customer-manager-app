@@ -131,7 +131,6 @@ ng serve
 O frontend estará disponível em:
 👉 `http://localhost:4200`
 
-
 ## 🎨 **Funcionalidades do Projeto**
 
 O **Customer Manager App** oferece um CRUD completo com uma interface moderna e responsiva.
@@ -155,17 +154,6 @@ O **Customer Manager App** oferece um CRUD completo com uma interface moderna e 
   - Tipografia *Inter*  
   - Botões com hover e foco  
   - Layout centralizado e responsivo  
-
-## 🧩 **Principais Commits & Evolução**
-
-- **Initial commit:** Estrutura base frontend + backend  
-- **feat:** Setup completo do CRUD com rotas, formulários e integração com API  
-- **refactor:** Criação do modelo `Customer` em TypeScript e ajustes em `CustomerService`  
-- **fix:** Corrigido problema de visibilidade do formulário e provider HTTP global  
-- **style:** Adição de gradientes, tipografia moderna e responsividade  
-- **feat:** Implementação de endpoints GET, POST, PUT, DELETE no Spring Boot  
-- **feat:** Integração total com o Angular (GetAll, Post, Update, Delete)  
-- **style(ui):** Padronização dos estilos e melhoria da usabilidade  
 
 ## 🧠 **Aprendizados Técnicos**
 
@@ -194,13 +182,11 @@ Para colaborar:
 3. Commit suas alterações seguindo o padrão **Conventional Commits**  
 4. Envie um Pull Request 🚀  
 
-## 👨‍💻 **Autor**
+## 🧑‍💻 Author
 
-**Piter Gomes**  
-Desenvolvedor Full Stack em formação.
+**Piter Gomes** — Aluno de Ciências da Computação (5º Semestre) & Desenvolvedor Full-Stack
 
-📧 **Email:** [piterg.bio@gmail.com](mailto:piterg.bio@gmail.com)  
-💼 **LinkedIn:** [linkedin.com/in/piter-gomes-4a39281a1](https://www.linkedin.com/in/piter-gomes-4a39281a1/)  
-🌐 **Portfólio:** [my-portfolio-flame-mu-xxis8wes4p.vercel.app](https://my-portfolio-flame-mu-xxis8wes4p.vercel.app/)
+📧 [Email](mailto:piterg.bio@gmail.com) | 💼 [LinkedIn](https://www.linkedin.com/in/piter-gomes-4a39281a1/) | 💻 [GitHub](https://github.com/pitercoding) | 🌐 [Portfolio](https://portfolio-pitergomes.vercel.app/)
+
 
 
