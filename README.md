@@ -166,12 +166,6 @@ Durante o desenvolvimento deste projeto foram aplicadas diversas boas práticas:
 - Configuração de **CORS** e rotas dinâmicas  
 - Estilização moderna e **UX responsiva**
 
-## 📜 **Licença**
-
-Este projeto está sob a licença **MIT**. 
-
-Você é livre para usar, modificar e distribuir este código, desde que mantenha os créditos originais.
-
 ## 🤝 **Contribuições**
 
 Contribuições são muito bem-vindas!  
@@ -180,13 +174,18 @@ Para colaborar:
 1. Faça um fork do repositório  
 2. Crie uma branch: `git checkout -b feature/nova-funcionalidade`  
 3. Commit suas alterações seguindo o padrão **Conventional Commits**  
-4. Envie um Pull Request 🚀  
+4. Envie um Pull Request 🚀
 
-## 🧑‍💻 Author
+## 📜 **Licença**
+
+Este projeto está sob a licença **MIT**.  
+
+## 🧑‍💻 Autor
 
 **Piter Gomes** — Aluno de Ciências da Computação (5º Semestre) & Desenvolvedor Full-Stack
 
 📧 [Email](mailto:piterg.bio@gmail.com) | 💼 [LinkedIn](https://www.linkedin.com/in/piter-gomes-4a39281a1/) | 💻 [GitHub](https://github.com/pitercoding) | 🌐 [Portfolio](https://portfolio-pitergomes.vercel.app/)
+
 
 
 
