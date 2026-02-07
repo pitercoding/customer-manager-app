@@ -6,132 +6,70 @@
   <a href="README.en.md">🇺🇸 English</a>
 </p>
 
-O **Customer Manager App** é uma aplicação **Full Stack** desenvolvida para gerenciar clientes de forma simples, moderna e eficiente. 
+O **Customer Manager App** é uma aplicação **Full Stack** desenvolvida para gerenciar clientes de forma simples, moderna e eficiente.
 
-O projeto implementa um CRUD completo (**Create, Read, Update, Delete**) utilizando **Spring Boot** no backend e **Angular** no frontend, com integração direta via **API RESTful** e persistência de dados em **MySQL**.  
+O projeto implementa um CRUD completo (**Create, Read, Update, Delete**) utilizando **Spring Boot** no backend e **Angular** no frontend, com integração via **API RESTful** e persistência de dados em **PostgreSQL**.
 
 ---
 
-## 🎯 **Por que esse projeto?**
+## **Como rodar o projeto**
 
-O objetivo principal deste projeto é consolidar o aprendizado e a prática de um ambiente **full stack Java + Angular**, cobrindo todas as etapas de desenvolvimento de uma aplicação moderna:
+### **Ambientes**
 
-- Criação e consumo de **APIs REST**
-- Uso de **componentes standalone e reativos** no Angular
-- Integração entre frontend e backend
-- Manipulação de dados reais em banco relacional
-- Testes, boas práticas e arquitetura limpa
+- **Local:** usa `application-local.properties` e PostgreSQL local.
+- **Produção:** usa `application-prod.properties` e PostgreSQL no Render (env vars).
 
-Este projeto também serve como um **modelo de referência** para quem deseja entender como estruturar um CRUD completo utilizando tecnologias amplamente usadas no mercado.
+### **Pré-requisitos**
 
-## 📂 **Organização do Projeto**
-
-A estrutura geral é dividida entre **frontend** (Angular) e **backend** (Spring Boot):
-```bash
-customer-manager-app/
-│
-├── backend/
-│   ├── src/main/java/com/example/customer/
-│   │   ├── controller/CustomerController.java
-│   │   ├── service/CustomerService.java
-│   │   ├── repository/CustomerRepository.java
-│   │   └── model/Customer.java
-│   ├── resources/application.properties
-│   └── pom.xml
-│
-└── frontend/
-    ├── src/app/
-    │   ├── components/
-    │   │   ├── post-customer/
-    │   │   ├── update-customer/
-    │   │   └── get-all-customers/
-    │   ├── service/customer.service.ts
-    │   ├── model/customer.ts
-    │   └── app.routes.ts
-    ├── assets/
-    ├── styles.css
-    └── angular.json
-```
-
-## 🛠️ **Ferramentas e Tecnologias**
-
-| Categoria | Tecnologias |
-|------------|--------------|
-| **Backend** | ☕ Java 17+, 🌀 Spring Boot (Web, JPA, Validation), 🌐 CORS Config |
-| **Frontend** | ⚡ Angular 18+, 💻 TypeScript, 🎨 CSS3, 🧱 HTML5 |
-| **Banco de Dados** | 🐬 MySQL |
-| **Testes & APIs** | 🧪 Postman, ✅ HttpClientTestingModule |
-| **IDE & Ferramentas** | 🧰 IntelliJ IDEA, 🧩 VSCode |
-
-## 📷 Capturas de Tela
-
-### 1. Criar Cliente (Post)
-<img src="https://github.com/user-attachments/assets/57793174-c20f-4df3-80ac-ae48070fe465" alt="Post" width="600">
-
-### 2. Listar Clientes (Get)
-<img src="https://github.com/user-attachments/assets/d35bbdcb-ab19-4795-9f1f-16fd246d94c1" alt="get-all" width="600">
-
-### 3. Atualizar Cliente (Update)
-<img src="https://github.com/user-attachments/assets/463b466b-c02b-40d9-9754-2340d46e0dc1" alt="update" width="600">
-
-### 4. Deletar Cliente (Delete)
-<img src="https://github.com/user-attachments/assets/f93245b6-0efe-4892-8eda-97cb9e65dd41" alt="delete" width="600">
-
-### 5. Banco de Dados MySQL
-<img src="https://github.com/user-attachments/assets/0c2a1809-54c5-48ff-99a3-03ed4b7d2f1c" alt="mysql" width="600">
-
-### 6. Postman Request
-<img src="https://github.com/user-attachments/assets/c9e0d9e1-edeb-4638-8342-8559fb60431c" alt="postman" width="600">
-
-
-## 🚀 **Como rodar o projeto**
-
-### 🔧 **Pré-requisitos**
-
-- Java 17+
+- Java 21
 - Node.js 18+
 - Angular CLI instalado globalmente (`npm install -g @angular/cli`)
-- MySQL em execução
+- PostgreSQL em execução
 
-### 🗄️ **1. Configurar o Banco de Dados**
+### **1. Configurar o Banco de Dados (Local)**
 
-Crie um banco no MySQL:
+Crie um banco no PostgreSQL:
 
 ```sql
-CREATE DATABASE customer_db;
+CREATE DATABASE crud_db;
 ```
 
-Edite o arquivo `application.properties` no backend:
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/customer_db
-spring.datasource.username=root
-spring.datasource.password=sua_senha
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-```
+As credenciais locais ficam em `backend/src/main/resources/application-local.properties`.
 
-### ⚙️ 2. Rodar o Backend (Spring Boot)
+### **2. Rodar o Backend (Spring Boot)**
 
 No diretório `/backend`:
+
 ```bash
-mvn spring-boot:run
+SPRING_PROFILES_ACTIVE=local mvn spring-boot:run
 ```
 
-O backend estará disponível em:
-👉 `http://localhost:8080/api/customers`
+Windows PowerShell:
 
-### 💻 3. Rodar o Frontend (Angular)
+```powershell
+$env:SPRING_PROFILES_ACTIVE="local"; mvn spring-boot:run
+```
+
+O backend estará disponível em: `http://localhost:8080/api/customers`
+
+### **3. Rodar o Frontend (Angular)**
 
 No diretório `/frontend`:
+
 ```bash
 npm install
 ng serve
 ```
 
-O frontend estará disponível em:
-👉 `http://localhost:4200`
+O frontend estará disponível em: `http://localhost:4200`
 
-## 🎨 **Funcionalidades do Projeto**
+### **Produção (Render + Vercel)**
+
+- Backend: Render (Spring Boot + PostgreSQL)
+- Frontend: Vercel (Angular)
+- Render env vars: `DB_URL`, `DB_USER`, `DB_PASSWORD`, `SPRING_PROFILES_ACTIVE=prod`
+
+## **Funcionalidades do Projeto**
 
 O **Customer Manager App** oferece um CRUD completo com uma interface moderna e responsiva.
 
@@ -185,7 +123,3 @@ Este projeto está sob a licença **MIT**.
 **Piter Gomes** — Aluno de Ciências da Computação (5º Semestre) & Desenvolvedor Full-Stack
 
 📧 [Email](mailto:piterg.bio@gmail.com) | 💼 [LinkedIn](https://www.linkedin.com/in/piter-gomes-4a39281a1/) | 💻 [GitHub](https://github.com/pitercoding) | 🌐 [Portfolio](https://portfolio-pitergomes.vercel.app/)
-
-
-
-
