@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Customer } from './customer';
+import { environment } from '../../environments/environment';
 
-const BASE_URL = "http://localhost:8080";  // URL of the backend server
+const BASE_URL = environment.apiBaseUrl;
 
 @Injectable({
   providedIn: 'root'  // service available globally
