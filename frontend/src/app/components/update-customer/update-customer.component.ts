@@ -17,6 +17,7 @@ export class UpdateCustomerComponent implements OnInit {
   id!: number;
   customer: any = null;
   updateCustomerForm!: FormGroup;
+  serverError: string | null = null;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -27,9 +28,9 @@ export class UpdateCustomerComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateCustomerForm = this.fb.group({
-      name: [null, [Validators.required, Validators.minLength(3)]],
-      email: [null, [Validators.required, Validators.email]],
-      phone: [null, [Validators.required]]
+      name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
+      email: [null, [Validators.required, Validators.email, Validators.maxLength(150), Validators.pattern(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}(?:\.[A-Za-z]{2,})?$/)]],
+      phone: [null, [Validators.required, Validators.maxLength(20), Validators.pattern(/^[+]?[(]?[0-9]{1,4}[)]?[0-9\s.-]{6,15}$/)]]
     });
 
     const idParam = this.activatedRoute.snapshot.paramMap.get('id');
@@ -67,6 +68,12 @@ export class UpdateCustomerComponent implements OnInit {
   }
 
   updateCustomer() {
+    this.serverError = null;
+    if (this.updateCustomerForm.invalid) {
+      this.updateCustomerForm.markAllAsTouched();
+      alert('Please fix the highlighted fields and try again.');
+      return;
+    }
     this.service.updateCustomer(this.id, this.updateCustomerForm.value).subscribe({
       next: (res) => {
         console.log('Customer updated successfully:', res);
@@ -77,7 +84,8 @@ export class UpdateCustomerComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error updating customer:', err);
-        alert('Failed to update customer');
+        this.serverError = err?.error?.message || 'Failed to update customer';
+        alert(this.serverError);
       }
     });
   }

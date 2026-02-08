@@ -4,16 +4,33 @@
     <form [formGroup]="postCustomerForm" (ngSubmit)="postCustomer()">
       <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" id="name" required formControlName="name"/>
+        <input type="text" id="name" required formControlName="name" maxlength="100" placeholder="e.g., Ana Souza"/>
+        <div class="field-error" *ngIf="postCustomerForm.get('name')?.touched && postCustomerForm.get('name')?.invalid">
+          <span *ngIf="postCustomerForm.get('name')?.errors?.['required']">Name is required.</span>
+          <span *ngIf="postCustomerForm.get('name')?.errors?.['minlength']">Name must be at least 3 characters.</span>
+          <span *ngIf="postCustomerForm.get('name')?.errors?.['maxlength']">Name must be at most 100 characters.</span>
+        </div>
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" id="email" required formControlName="email" />
+        <input type="email" id="email" required formControlName="email" maxlength="150" placeholder="e.g., ana.souza@email.com"/>
+        <div class="field-error" *ngIf="postCustomerForm.get('email')?.touched && postCustomerForm.get('email')?.invalid">
+          <span *ngIf="postCustomerForm.get('email')?.errors?.['required']">Email is required.</span>
+          <span *ngIf="postCustomerForm.get('email')?.errors?.['email']">Please enter a valid email.</span>
+          <span *ngIf="postCustomerForm.get('email')?.errors?.['pattern']">Email must include a valid domain (e.g., .com or .com.br).</span>
+          <span *ngIf="postCustomerForm.get('email')?.errors?.['maxlength']">Email must be at most 150 characters.</span>
+        </div>
       </div>
       <div class="form-group">
         <label for="phone">Phone:</label>
-        <input type="text" id="phone" required formControlName="phone"/>
+        <input type="tel" id="phone" required formControlName="phone" maxlength="20" placeholder="e.g., +55 11 91234-5678"/>
+        <div class="field-error" *ngIf="postCustomerForm.get('phone')?.touched && postCustomerForm.get('phone')?.invalid">
+          <span *ngIf="postCustomerForm.get('phone')?.errors?.['required']">Phone is required.</span>
+          <span *ngIf="postCustomerForm.get('phone')?.errors?.['pattern']">Please enter a valid phone number.</span>
+          <span *ngIf="postCustomerForm.get('phone')?.errors?.['maxlength']">Phone must be at most 20 characters.</span>
+        </div>
       </div>
+      <div class="server-error" *ngIf="serverError">{{ serverError }}</div>
       <div class="form-actions">
         <button type="submit">Save</button>
         <button type="button" class="btn-cancel" routerLink="/">Cancel</button>

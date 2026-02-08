@@ -20,6 +20,7 @@ import { CustomerService } from '../../service/customer.service';
 export class PostCustomerComponent implements OnInit {
 
   postCustomerForm!: FormGroup;
+  serverError: string | null = null;
 
   constructor(
     private customerService: CustomerService,
@@ -29,13 +30,14 @@ export class PostCustomerComponent implements OnInit {
 
   ngOnInit() {
     this.postCustomerForm = this.fb.group({
-      name: [null, [Validators.required, Validators.minLength(3)]],
-      email: [null, [Validators.required, Validators.email]],
-      phone: [null, [Validators.required]]
+      name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
+      email: [null, [Validators.required, Validators.email, Validators.maxLength(150), Validators.pattern(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}(?:\.[A-Za-z]{2,})?$/)]],
+      phone: [null, [Validators.required, Validators.maxLength(20), Validators.pattern(/^[+]?[(]?[0-9]{1,4}[)]?[0-9\s.-]{6,15}$/)]]
     });
   }
 
   postCustomer() {
+    this.serverError = null;
     if (this.postCustomerForm.valid) {
       this.customerService.postCustomer(this.postCustomerForm.value).subscribe({
         next: (res) => {
@@ -48,12 +50,14 @@ export class PostCustomerComponent implements OnInit {
         },
         error: (err) => {
           console.error('Error adding customer:', err);
-          alert('Failed to add customer. Please try again.');
+          this.serverError = err?.error?.message || 'Failed to add customer. Please try again.';
+          alert(this.serverError);
         }
       });
     } else {
       console.warn('Form is invalid. Please fill in all required fields.');
-      alert('Form is invalid. Please fill in all required fields.');
+      this.postCustomerForm.markAllAsTouched();
+      alert('Please fix the highlighted fields and try again.');
     }
   }
 }

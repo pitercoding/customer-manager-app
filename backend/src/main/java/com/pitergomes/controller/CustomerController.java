@@ -5,6 +5,7 @@ import com.pitergomes.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @PostMapping("/customer")
-    public Customer postCustomer(@RequestBody Customer customer){
+    public Customer postCustomer(@Valid @RequestBody Customer customer){
         return customerService.postCustomer(customer);
     }
 
@@ -46,7 +47,7 @@ public class CustomerController {
     }
 
     @PutMapping("/customer/{id}")
-    public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer customer) {
+    public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @Valid @RequestBody Customer customer) {
         Customer existingCustomer = customerService.getCustomerById(id);
         if (existingCustomer == null) {
             return ResponseEntity.notFound().build();

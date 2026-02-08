@@ -55,6 +55,19 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.18);
 }
 
+.field-error {
+  margin-top: 6px;
+  color: #8b3b2f;
+  font-size: 0.82rem;
+}
+
+.server-error {
+  margin-top: 8px;
+  color: #8b3b2f;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 .form-actions {
   display: flex;
   gap: 10px;
