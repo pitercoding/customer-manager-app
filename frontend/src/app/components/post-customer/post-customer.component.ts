@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CustomerService } from '../../service/customer.service';
 
 @Component({
@@ -11,7 +11,8 @@ import { CustomerService } from '../../service/customer.service';
   imports: [
     CommonModule,        // *ngIf, *ngFor, etc
     ReactiveFormsModule, // Reactive Forms
-    HttpClientModule     // Http requests
+    HttpClientModule,    // Http requests
+    RouterModule
   ],
   templateUrl: './post-customer.component.html',
   styleUrls: ['./post-customer.component.css']

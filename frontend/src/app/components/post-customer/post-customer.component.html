@@ -1,6 +1,6 @@
 <div class="container">
   <div class="form-container">
-    <h2 class="form-title">Post New Customer</h2>
+    <h2 class="form-title">Add New Customer</h2>
     <form [formGroup]="postCustomerForm" (ngSubmit)="postCustomer()">
       <div class="form-group">
         <label for="name">Name:</label>
@@ -14,7 +14,10 @@
         <label for="phone">Phone:</label>
         <input type="text" id="phone" required formControlName="phone"/>
       </div>
-      <button type="submit">Post</button>
+      <div class="form-actions">
+        <button type="submit">Save</button>
+        <button type="button" class="btn-cancel" routerLink="/">Cancel</button>
+      </div>
     </form>
   </div>
 </div>

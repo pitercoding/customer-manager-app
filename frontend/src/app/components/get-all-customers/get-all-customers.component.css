@@ -103,18 +103,18 @@ td .btn-delete {
 }
 
 .btn-update {
-  background-color: var(--accent);
+  background-color: #1f6f6a;
 }
 .btn-update:hover {
-  background-color: #083e55;
+  background-color: #195d59;
   transform: translateY(-1px);
 }
 
 .btn-delete {
-  background-color: var(--danger);
+  background-color: #9b5a3c;
 }
 .btn-delete:hover {
-  background-color: #991b1b;
+  background-color: #854b31;
   transform: translateY(-1px);
 }
 
