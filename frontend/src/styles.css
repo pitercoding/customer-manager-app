@@ -1,18 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap");
+
+:root {
+  --sand-bg: #f3efe7;
+  --sand-texture: rgba(255, 255, 255, 0.35);
+  --card-bg: #fbf8f2;
+  --card-border: #e6dccf;
+  --text: #1d1b16;
+  --muted: #6b6257;
+  --primary: #0f766e;
+  --primary-strong: #0b5f59;
+  --accent: #0b4f6c;
+  --danger: #b91c1c;
+  --shadow: 0 10px 24px rgba(23, 19, 12, 0.12);
+  --radius: 14px;
+}
+
 body, html {
   height: 100%;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 16px;
-  line-height: 1.5;
-  color: #000;
+  line-height: 1.55;
+  color: var(--text);
+  background: var(--sand-bg);
 }
 
 .app-background {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #654ea3 0%, #eaafc8 100%);
-  padding: 20px;
+  display: block;
+  padding: 32px 20px;
   box-sizing: border-box;
+  background:
+    radial-gradient(800px 400px at 10% 5%, var(--sand-texture), transparent 60%),
+    radial-gradient(700px 360px at 90% 10%, var(--sand-texture), transparent 65%),
+    linear-gradient(180deg, #f6f1e9 0%, #f1ebdf 100%);
 }

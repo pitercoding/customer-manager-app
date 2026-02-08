@@ -1,5 +1,12 @@
 <div class="table-container">
-  <button class="btn-new" routerLink="/customer">Post New Customer</button>
+  <div class="topbar">
+    <div class="app-title">
+      <span class="app-kicker">Customer Manager</span>
+      <h1>Customers</h1>
+    </div>
+    <button class="btn-new" routerLink="/customer">New customer</button>
+  </div>
+
   <table>
     <thead>
       <tr>
@@ -11,10 +18,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let customer of customers">
-        <td>{{customer.name}}</td>
-        <td>{{customer.email}}</td>
-        <td>{{customer.phone}}</td>
-        <td>
+        <td data-label="Name">{{customer.name}}</td>
+        <td data-label="Email">{{customer.email}}</td>
+        <td data-label="Phone">{{customer.phone}}</td>
+        <td data-label="Action">
           <button class="btn-update" [routerLink]="['/customer', customer.id]">Update</button>
           <button class="btn-delete" (click)="deleteCustomer(customer.id)">Delete</button>
         </td>
