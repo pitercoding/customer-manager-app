@@ -31,7 +31,10 @@
         </div>
       </div>
       <div class="server-error" *ngIf="serverError">{{ serverError }}</div>
-      <button type="submit" [disabled]="updateCustomerForm.invalid">Update</button>
+      <div class="form-actions">
+        <button type="submit" [disabled]="updateCustomerForm.invalid">Update</button>
+        <button type="button" class="btn-cancel" routerLink="/">Cancel</button>
+      </div>
     </form>
   </div>
 </div>
